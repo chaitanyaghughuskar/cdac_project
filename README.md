@@ -1,37 +1,51 @@
+
 # CDAC Management Portal
 
-## Overview
-A full-stack web application for managing Student Attendance using QR Codes, created for CDAC Project submission.
+## 📌 Overview
+A full-stack web application for managing **student attendance using QR codes**, created as a CDAC project.
 
-### Tech Stack
-- **Backend:** Spring Boot, Spring Security (JWT), Spring Data JPA, MySQL
-- **Frontend:** React, Tailwind CSS, Axios, React Router
+## 🚀 Project Highlights
+- Role-based authentication using JWT
+- QR-based attendance system
+- Secure REST APIs with Spring Security
+- MySQL database integration with JPA
+- Separate dashboards for Admin, Faculty, and Student
 
-## Prerequisites
-- Java 17+
-- Maven
-- MySQL 8.0+
-- Node.js 18+
+## 🧰 Tech Stack
+- **Backend:** Spring Boot, Spring Security (JWT), Spring Data JPA, MySQL  
+- **Frontend:** React, Tailwind CSS, Axios, React Router  
 
-## Database Setup
-1. Create a MySQL database named `cdac_db`.
-2. Run the SQL script found at `backend/cdac_management_portal.sql` to initialize tables and roles.
-   ```sql
-   source backend/cdac_management_portal.sql;
-   ```
-   **Note:** The script creates roles (ADMIN, FACULTY, STUDENT). A default admin user is created by the application on startup if configured in `DataInitializer.java`. Default admin is `admin@cdac.in` / `admin123`.
+## ✅ Prerequisites
+- Java 17+  
+- Maven  
+- MySQL 8.0+  
+- Node.js 18+  
+
+## 🗄️ Database Setup
+1. Create a MySQL database named `cdac_db`.  
+2. Run the SQL script found at `backend/cdac_management_portal.sql` to initialize tables and roles:
+```sql
+source backend/cdac_management_portal.sql;
+```
+**Note:** This script creates the roles: ADMIN, FACULTY, STUDENT.
+
+A default admin user is automatically created on first startup (via `DataInitializer.java`).
+
+Default Admin Credentials:
+- Email: `admin@cdac.in`
+- Password: `admin123`
 
 ## Backend Setup (Spring Boot)
 1. Navigate to `backend` directory.
 2. Update `src/main/resources/application.properties` with your MySQL username and password.
-3. Build and Run:
+3. Build and run:
    ```bash
    mvn clean install
    mvn spring-boot:run
    ```
 4. Server runs on `http://localhost:8080`.
 
-### Running in Eclipse IDE
+## Running in Eclipse IDE
 1. Open Eclipse.
 2. File -> Import -> Maven -> Existing Maven Projects.
 3. Browse to `d:\cdac_project\backend`.
@@ -56,7 +70,7 @@ A full-stack web application for managing Student Attendance using QR Codes, cre
    ```bash
    npm install
    ```
-3. Run Development Server:
+3. Run development server:
    ```bash
    npm run dev
    ```
@@ -82,7 +96,7 @@ A full-stack web application for managing Student Attendance using QR Codes, cre
 
 ## API Endpoints
 
-### Auth
+### Authentication
 - `POST /api/auth/signin` - Login
 
 ### Admin
@@ -94,3 +108,9 @@ A full-stack web application for managing Student Attendance using QR Codes, cre
 ### Student
 - `POST /api/student/attendance/mark` - Mark attendance with token
 - `POST /api/student/leave/apply` - Apply for leave
+
+## 🏗️ Architecture
+- Backend: REST APIs built using Spring Boot
+- Frontend: React SPA consuming APIs via Axios
+- Authentication: JWT-based token system
+- Database: MySQL with Spring Data JPA
